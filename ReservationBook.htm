@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réserver un Livre - Bibliothèque ESST</title>
+    <link rel="stylesheet" href="../css/StyleUser.css">
+    <link rel="stylesheet" href="../css/ReservationBookStyle.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="../img/ESST-logo-white-300x233.png" alt="ESST Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="user.htm">Accueil</a></li>
+                <li><a href="SearchBooks.htm">Rechercher des Livres</a></li> 
+                <li><a href="MyReservations.htm">Mes Réservations</a></li>
+                <li><a href="Profile.htm">Mon Profil</a></li>
+                <li><a href="ReminderNotification.htm">Notification De Rappel D'emprunts</a></li>  
+
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Reservation Content -->
+    <main class="dashboard-content">
+        <header class="dashboard-header">
+            <h1 style="text-align: center;">Réserver un Livre</h1>
+            <p style="text-align: center;">Remplissez le formulaire ci-dessous pour réserver un livre.</p>
+        </header>
+
+        <!-- Reservation Form Section -->
+        <section id="reservation-form">
+            <form action="" method="post">
+                <div class="form-group">
+                    <input type="text" id="titre" name="titre" placeholder="Titre du Livre" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="auteur" name="auteur" placeholder="Auteur" required>
+                </div>
+                <div class="form-group">
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn-submit">Réserver</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>

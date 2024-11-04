@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Profil - Bibliothèque ESST</title>
+    <link rel="stylesheet" href="../css/StyleUser.css"> 
+    <link rel="stylesheet" href="../css/user_profile.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="../img/ESST-logo-white-300x233.png" alt="ESST Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="user.htm">Accueil</a></li>
+                <li><a href="SearchBooks.htm">Rechercher des Livres</a></li>
+                <li><a href="ReservationBook.htm">Mes Réservations</a></li>
+                <li><a href="Profile.htm" class="active">Mon Profil</a></li>
+                <li><a href="ReminderNotification.htm">Notification De Rappel D'emprunts</a></li> 
+            </ul>
+        </nav> 
+    </aside>
+
+    <!-- Main Profile Content -->
+    <main class="dashboard-content">
+        <header class="dashboard-header">
+            <h1 style="text-align: center;">Mon Profil</h1>
+            <p style="text-align: center;">Consultez et mettez à jour les informations de votre compte.</p>
+        </header>
+
+        <!-- Profile Details Section -->
+        <section id="profile-details">
+            <div class="profile-card">
+                <h2>Informations Personnelles</h2>
+                <form action="" method="post" class="profile-form">
+                    <div class="form-group">
+                        <label for="nom">Nom :</label>
+                        <input type="text" id="nom" name="nom" value="Jean Dupont" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email :</label>
+                        <input type="email" id="email" name="email" value="jean.dupont@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tel">Téléphone :</label>
+                        <input type="tel" id="tel" name="tel" value="+33 6 12 34 56 78">
+                    </div>
+                    <div class="form-group">
+                        <label for="adresse">Adresse :</label>
+                        <input type="text" id="adresse" name="adresse" value="123 Rue de la Bibliothèque, Paris, France">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn-update">Mettre à jour</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

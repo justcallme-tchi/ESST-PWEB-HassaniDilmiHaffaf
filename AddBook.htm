@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gérer les Livres - Bibliothèque ESST</title>
+    <link rel="stylesheet" href="../css/style-addbook.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="../img/ESST-logo-white-300x233.png" alt="ESST Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.htm" >Page d'accueil</a></li>
+                <li><a href="admin.htm">Dashboard</a></li>
+                <li><a href="AddBook.htm" class="active">Gérer les Livres</a></li>
+                <li><a href="Notify.htm">Notifier les Utilisateurs</a></li>
+                <li><a href="ManageUsers.htm">Gérer les Utilisateurs</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="add-book-content">
+        <header class="page-header">
+            <h1>Gérer les Livres</h1>
+            <p>Ajouter, modifier ou supprimer des livres dans la bibliothèque.</p>
+        </header>
+
+        <!-- Add Book Form -->
+        <section class="add-book-form">
+            <h2>Ajouter un Livre</h2>
+            <form id="addBookForm">
+                <input type="text" placeholder="Année" required>
+                <input type="text" placeholder="Filière" required>
+                <input type="text" placeholder="Spécialité" required>
+                <input type="text" placeholder="Module" required>
+                <input type="text" placeholder="Titre" required>
+                <input type="text" placeholder="Auteur" required>
+                <input type="text" placeholder="Édition" required>
+                <input type="number" placeholder="Nbr d'exemplaire" required>
+                <button type="submit" class="btn">Ajouter</button>
+            </form>
+        </section>
+
+        <!-- Book List Table -->
+        <section id="book-list">
+            <h2>Liste des Livres</h2>
+            <table class="book-table">
+                <thead>
+                    <tr>
+                        <th>Année</th>
+                        <th>Filière</th>
+                        <th>Spécialité</th>
+                        <th>Module</th>
+                        <th>Titre</th>
+                        <th>Auteur</th>
+                        <th>Édition</th>
+                        <th>Nbr d'exemplaire</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>L2</td>
+                        <td>ST/SM</td>
+                        <td>Électronique/Chimie</td>
+                        <td>Vibrations et Ondes Mécaniques</td>
+                        <td>Vibrations & Ondes Cours et Exercices Corrigés</td>
+                        <td>H. Djelouah</td>
+                        <td>2021</td>
+                        <td>4</td>
+                        <td>
+                            <button class="btn-edit">Modifier</button>
+                            <button class="btn-delete" onclick="confirmDelete()">Supprimer</button>
+                        </td>
+                    </tr>
+                    <!-- Additional rows can be added here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script>
+        function confirmDelete() {
+            if (confirm("Êtes-vous sûr de vouloir supprimer ce livre ?")) {
+                alert("Livre supprimé avec succès.");
+            }
+        }
+
+        document.getElementById("addBookForm").onsubmit = function(event) {
+            event.preventDefault();
+            alert("Livre ajouté avec succès.");
+        };
+    </script>
+
+</body>
+</html>
