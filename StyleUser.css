@@ -379,26 +379,37 @@ body {
     background: #e3e4ff;
 }
 
+/* Style des boutons */
 .status {
-    padding: 5px 10px;
+    display: inline-block;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    border: none;
     border-radius: 5px;
-    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s ease;
 }
 
 .status.warning {
-    background: #4CAF50; 
+    background-color: #ff9800; /* Orange pour Retour Approche */
     color: #ffffff;
 }
 
 .status.overdue {
-    background: #4CAF50;
+    background-color: #f44336; /* Rouge pour En Retard */
     color: #ffffff;
 }
 
 .status.on-time {
-    background: #4CAF50;
+    background-color: #4caf50; /* Vert pour En Temps */
     color: #ffffff;
-} 
+}
+
+.status:hover {
+    transform: scale(1.1); /* Agrandissement au survol */
+    opacity: 0.9;
+}
 
 body {
     font-family: 'Open Sans', sans-serif;
@@ -555,5 +566,4 @@ body {
 
 .btn-update:hover {
     background: #2a2e9b;
-}
-
+} 
