@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page - Bibliothèque ESST</title>
+    <link rel="stylesheet" href="../css/StyleUser.css">
+    <link rel="stylesheet" href="../css/user_books_table.css"> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="../img/ESST-logo-white-300x233.png" alt="ESST Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.htm">Page d'accueil</a></li>
+                <li><a href="user.htm" class="active">Dashboard</a></li>
+                <li><a href="SearchBooks.htm">Rechercher des Livres</a></li>
+                <li><a href="ReservationBook.htm">Mes Réservations</a></li>
+                <li><a href="Profile.htm">Mon Profil</a></li>
+                <li><a href="ReminderNotification.htm">Notification De Rappel D'emprunts</a></li> 
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main User Content -->
+    <main class="dashboard-content">
+        <header class="dashboard-header">
+            <h1 style="text-align: center;">Bienvenue sur votre espace utilisateur</h1>
+            <p id="nomUser" style="text-align: center;">Gérez vos emprunts et découvrez de nouveaux livres à la bibliothèque.</p>
+        </header>
+
+        <!-- User Information Section -->
+        <section class="dashboard-cards">
+            <div class="card" id="nbrLivreEmprunte">
+                <h3>Livres Empruntés</h3>
+                <p>3</p>
+            </div>
+            <div class="card" id="nbrLivreReserve">
+                <h3>Livres Réservés</h3>
+                <p>2</p>
+            </div>
+            <div class="card" id="nbrLivreRendu">
+                <h3>Livres Rendus</h3>
+                <p>12</p>
+            </div>
+        </section>
+
+        <!-- User Books Section -->
+        <section id="user-books">
+            <h2 style="text-align: center;">Mes Livres</h2>
+            <table class="book-table">
+                <thead>
+                    <tr>
+                        <th>Année</th>
+                        <th>Filière</th>
+                        <th>Spécialité</th>
+                        <th>Module</th>
+                        <th>Titre</th>
+                        <th>Auteur</th>
+                        <th>Édition</th>
+                        <th>Nbr d'exemplaire</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>L2</td>
+                        <td>ST/SM</td>
+                        <td>Électronique/Chimie</td>
+                        <td>Vibrations et Ondes Mécaniques</td>
+                        <td>Travaux pratiques de vibrations et ondes examens de TP corrigés</td>
+                        <td>Ahmed Bourdache</td>
+                        <td>2021</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>L2</td>
+                        <td>ST/SM</td>
+                        <td>Électronique/Chimie</td>
+                        <td>Vibrations et Ondes Mécaniques</td>
+                        <td>Travaux pratiques de vibrations et ondes examens corrigés</td>
+                        <td>Ahmed Bourdache</td>
+                        <td>2019</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>L2</td>
+                        <td>ST/SM</td>
+                        <td>Électronique/Chimie</td>
+                        <td>Vibrations et Ondes Mécaniques</td>
+                        <td>Vibrations & Ondes Cours et Exercices Corrigés</td>
+                        <td>H. Djelouah</td>
+                        <td>2017</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>L2</td>
+                        <td>ST</td>
+                        <td>Électronique</td>
+                        <td>ELN.F</td>
+                        <td>Électronique TOME 3 exercices avec solutions</td>
+                        <td>M. Bornand</td>
+                        <td>1986</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>L3</td>
+                        <td>ISSIL</td>
+                        <td>Informatique</td>
+                        <td>BDD</td>
+                        <td>Base de données & SGBD</td>
+                        <td>S. Boukhedouma, N. Selmoune</td>
+                        <td>2005</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>M1/M2</td>
+                        <td>ISSIL</td>
+                        <td>Informatique</td>
+                        <td>Management</td>
+                        <td>Management de projet</td>
+                        <td>E. W. Larson</td>
+                        <td>2014</td>
+                        <td>1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <input type="text" id="searchInput" placeholder="Rechercher dans vos livres..." style="margin: 20px; padding: 10px; width: 95%;">
+        <button id="exportBtn" style="margin: 20px; padding: 10px; background-color: #3533cd; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Exporter en CSV
+        </button>
+        <canvas id="booksChart" width="400" height="200" style="margin: 20px;"></canvas>        
+    </main>
+    <script src="../js/user.js"></script>
+</body>
+</html>
