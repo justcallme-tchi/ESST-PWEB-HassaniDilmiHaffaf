@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Bibliothèque ESST</title>
+    <link rel="stylesheet" href="../css/style-admindashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js Library -->
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="../img/ESST-logo-white-300x233.png" alt="ESST Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.htm">Page d'accueil</a></li>
+                <li><a href="admin.htm" class="active">Dashboard</a></li>
+                <li><a href="AddBook.htm">Gérer les Livres</a></li>
+                <li><a href="Notify.htm">Notifier les Utilisateurs</a></li>
+                <li><a href="ManageUsers.htm">Gérer les Utilisateurs</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Dashboard Content -->
+    <main class="dashboard-content">
+        <!-- Top Header with Welcome Text, Profile Picture, and Search Bar -->
+        <header class="dashboard-header">
+            <div class="header-left">
+                <h1 style="text-align: center; padding-bottom: 1cm;">Admin Dashboard</h1>
+                <p id="nomAdmin" style="text-align: center; padding-bottom: 1cm;">Bienvenue, Admin! Gérez les ressources de la bibliothèque facilement.</p>
+            </div>
+            <div class="header-right">
+                <div class="search-bar">
+                    <input type="text" placeholder="Recherche..." />
+                </div>
+                <div class="notification">
+                    <span class="bell-icon">&#128276;</span>
+                    <span class="notification-count">0</span>
+                </div>
+                <div class="profile-pic">
+                    <img src="../img/admin-profile.png" alt="Admin Profile">
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Cards Section -->
+        <section class="dashboard-cards" style="padding-bottom: 1cm;">
+            <div class="card" id="totalBooksCard">
+                <div class="card-content">
+                    <h3>Total Livres</h3>
+                    <p id="totalBooksCount">0</p>
+                </div>
+                <div class="card-icon">&#128214;</div>
+            </div>
+            <div class="card" id="availableBooksCard">
+                <div class="card-content">
+                    <h3>Livres Disponibles</h3>
+                    <p id="availableBooksCount">0</p>
+                </div>
+                <div class="card-icon">&#128218;</div>
+            </div>
+            <div class="card" id="reservedBooksCard">
+                <div class="card-content">
+                    <h3>Livres Réservés</h3>
+                    <p id="reservedBooksCount">0</p>
+                </div>
+                <div class="card-icon">&#128210;</div>
+            </div>
+            <div class="card" id="registeredUsersCard">
+                <div class="card-content">
+                    <h3>Utilisateurs Inscrits</h3>
+                    <p id="registeredUsersCount">0</p>
+                </div>
+                <div class="card-icon">&#128100;</div>
+            </div>
+        </section>
+
+        <!-- Graphs Section -->
+        <section class="Graphs" style="padding-bottom: 1cm;">
+            <div class="graph-card">
+                <h3>Graphique des Livres Disponibles</h3>
+                <canvas id="availableBooksChart"></canvas>
+            </div>
+            <div class="graph-card">
+                <h3>Graphique des Réservations</h3>
+                <canvas id="reservationsChart"></canvas>
+            </div>
+            <div class="graph-card">
+                <h3>Graphique des Nouveaux Utilisateurs</h3>
+                <canvas id="newUsersChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Recent Book Reservations Section -->
+        <section class="recent-reservations" style="padding-bottom: 1cm;">
+            <h2>Réservations Récentes</h2>
+            <div class="search-bar">
+                <input type="text" placeholder="Rechercher ici..." />
+            </div>
+            <table class="reservation-table">
+                <thead>
+                    <tr>
+                        <th>Numéro de Réservation</th>
+                        <th>Titre du Livre</th>
+                        <th>Nom de l'Utilisateur</th>
+                        <th>Date de Réservation</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#101</td>
+                        <td>Vibrations et Ondes</td>
+                        <td>Jean Dupont</td>
+                        <td>04/11/2024</td>
+                        <td>Confirmée</td>
+                    </tr>
+                    <tr>
+                        <td>#102</td>
+                        <td>Physique Mécanique</td>
+                        <td>Marie Durant</td>
+                        <td>03/11/2024</td>
+                        <td>En Attente</td>
+                    </tr>
+                    <tr>
+                        <td>#103</td>
+                        <td>Chimie Organique</td>
+                        <td>Amine Kader</td>
+                        <td>02/11/2024</td>
+                        <td>Confirmée</td>
+                    </tr>
+                    <tr>
+                        <td>#104</td>
+                        <td>Mathématiques Supérieures</td>
+                        <td>Sarah Benali</td>
+                        <td>01/11/2024</td>
+                        <td>Annulée</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <!-- Link to external JavaScript file -->
+    <script src="../js/admin.js"></script>
+
+</body>
+</html>
