@@ -1,18 +1,20 @@
--- Création des tables
-CREATE TABLE utilisateur (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+-- Création des tables.
+CREATE TABLE Administrateur (
+    id INT AUTO_INCREMENT PRIMARY KEY, -- Clé primaire auto-incrémentée
     nom VARCHAR(100) NOT NULL,
     prenom VARCHAR(100) NOT NULL,
     email VARCHAR(150) UNIQUE NOT NULL,
-    mot_de_passe VARCHAR(255) NOT NULL,
-    role VARCHAR(50) NOT NULL
+    mot_de_passe VARCHAR(255) NOT NULL
 );
+
 CREATE TABLE Etudiant (
-    MatriculeEtudiant INT PRIMARY KEY,
-    Nom VARCHAR(50),
-    Prenom VARCHAR(50),
-    DateNaissance DATE,
-    EtatEtudiant VARCHAR(20) -- Exemples : 'Inscrit', 'Non inscrit', 'Diplômé'
+    MatriculeEtudiant INT PRIMARY KEY, -- Clé primaire
+    Nom VARCHAR(50) NOT NULL,
+    Prenom VARCHAR(50) NOT NULL,
+    DateNaissance DATE NOT NULL,
+    email VARCHAR(150) UNIQUE NOT NULL,
+    mot_de_passe VARCHAR(255) NOT NULL,
+    EtatEtudiant VARCHAR(20) NOT NULL -- Exemples : 'Inscrit', 'Non inscrit', 'Diplômé'
 );
 
 CREATE TABLE Edition (
@@ -83,10 +85,19 @@ CREATE TABLE Ecrit (
 );
 
 -- Insertion des données
-INSERT INTO utilisateur (nom, prenom, email, mot_de_passe, role) 
-VALUES ('ferroukhi', 'wassila', 'wassila.ferroukhi@esst-sup.com', 'frwass2019', 'Admin');
-INSERT INTO utilisateur (nom, prenom, email, mot_de_passe, role) 
-VALUES ('aitmessaoud', 'tewfik', 'tewfik.aitmessaoud@esst-sup.com', 'aitmess2019', 'Utilisateur');
+
+INSERT INTO Administrateur (id, nom, prenom, email, mot_de_passe)  
+VALUES (1, 'Ferroukhi', 'Wassila', 'wassila.ferroukhi@esst-sup.com', 'frwass2019');
+
+
+INSERT INTO Etudiant (MatriculeEtudiant, Nom, Prenom, DateNaissance, email, mot_de_passe, EtatEtudiant)  
+VALUES (2, 'Chibane', 'El Hadi', '1998-08-15', 'chibane.elhadi@esst-sup.com', 'elhad2019', 'Non inscrit');
+
+
+INSERT INTO Etudiant (MatriculeEtudiant, Nom, Prenom, DateNaissance, email, mot_de_passe, EtatEtudiant)  
+VALUES (1, 'Bouchaar', 'Mourad', '2003-05-10', 'bouchaar.mourad@esst-sup.com', 'boumou2019', 'Inscrit');
+
+
 INSERT INTO Auteur (IDAuteur, NomAuteur)
 VALUES
 (1, 'H.Djelouah'),
@@ -118,12 +129,6 @@ VALUES
 (1, 'Neuf', 1, 1),
 (2, 'Usagé', 1, 2);
 
-INSERT INTO Etudiant (MatriculeEtudiant, Nom, Prenom, DateNaissance, EtatEtudiant)
-VALUES
-(1, 'El Hadi', 'Chibane', '2003-05-10', 'Inscrit'),
-(2, 'Mourad', 'Bouchaar', '1998-08-15', 'Diplômé');
-
-
 INSERT INTO Date (DateEmprunt)
 VALUES ('2024-01-10');
 
@@ -151,7 +156,7 @@ WHERE MatriculeEtudiant = 1 AND IDExemplaire = 1 AND DateEmprunt = '2024-01-10';
 DELETE FROM Exemplaire
 WHERE IDExemplaire = 2;
 
-DELETE FROM Etudiant
+DELETE FROM Etudiant 
 WHERE MatriculeEtudiant = 2 AND EtatEtudiant = 'Non inscrit';
 
 -- Procédures et déclencheurs
@@ -169,4 +174,3 @@ BEGIN
 END$$
 
 DELIMITER ;
-
