@@ -70,7 +70,7 @@ CREATE TABLE Emprunter (
 
    CREATE TABLE Date (
 
-     DateEmprunt  DATE PRIMARY KEY,
+     DateEmprunt  DATE PRIMARY KEY
 
 );
 
