@@ -155,22 +155,18 @@ DELETE FROM Etudiant
 WHERE MatriculeEtudiant = 2 AND EtatEtudiant = 'Non inscrit';
 
 -- Procédures et déclencheurs
+DELIMITER $$
+
 CREATE TRIGGER check_etudiant_inscrit
 BEFORE INSERT ON Emprunter
 FOR EACH ROW
 BEGIN
+    -- Vérifie si l'étudiant n'est pas inscrit
     IF (SELECT EtatEtudiant FROM Etudiant WHERE MatriculeEtudiant = NEW.MatriculeEtudiant) != 'Inscrit' THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'L\'étudiant doit être inscrit pour emprunter.';
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'L’étudiant n’est pas inscrit et ne peut pas emprunter.';
     END IF;
-END;
+END$$
 
-CREATE PROCEDURE inventaire_ouvrages()
-BEGIN
-    SELECT * FROM Ouvrage;
-END;
+DELIMITER ;
 
-CREATE PROCEDURE RO2_ouvrages_non_restitues()
-BEGIN
-    SELECT * FROM Emprunter
-    WHERE DateRestitutionReelle IS NULL AND NOW() > DateRestitutionPrevue;
-END;
