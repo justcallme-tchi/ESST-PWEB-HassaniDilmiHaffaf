@@ -2,92 +2,87 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8"> <!-- encodage -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ajustement sur tous les appareils (téléphone, tablette, pc, télévision) -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<title>Formulaire de Connexion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ajustement sur tous les appareils -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Formulaire de Connexion</title>
     <link rel="stylesheet" href="../css/LoginStyle.css">
 </head>
 <body>
 <div class="container" id="container">
-	<div class="form-container sign-up-container">
-		<form action="#">
-			<h1>Créer un Compte</h1>
-			<div class="social-container">
-				<a href="#" onclick="loginWithFacebook()" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" onclick="loginWithGoogle()" class="social"><i class="fab fa-google"></i></a>
-				<a href="#" onclick="loginWithLinkedIn()" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div>			
-			<span>ou utilisez votre email pour vous inscrire</span>
-
-			<!-- Choix de rôle pour la création de compte -->
-			<div class="role-selection">
-				<label>
-					<input type="radio" name="role-signup" value="user" required>
-					<span class="radio-label">Utilisateur</span>
-				</label>
-				<label>
-					<input type="radio" name="role-signup" value="admin" required>
-					<span class="radio-label">Administrateur</span>
-				</label>
-			</div>
-			<div class="role-error" id="roleErrorSignup" style="color: red; display: none;">
-				Veuillez choisir un rôle : Utilisateur ou Administrateur.
-			</div>
-
-			<input type="text" placeholder="Nom" required/>
-			<input type="email" placeholder="Email" required />
-			<input type="password" placeholder="Mot de passe" required />
-			<button>Inscription</button>
-		</form>
-	</div>
-	<div class="form-container sign-in-container">
-		<form action="#">
-			<h1>Connexion</h1>
-			<div class="social-container">
-				<a href="#" onclick="loginWithFacebook()" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" onclick="loginWithGoogle()" class="social"><i class="fab fa-google"></i></a>
-				<a href="#" onclick="loginWithLinkedIn()" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div>	
-			<span>ou utilisez votre compte</span>
-			<div class="role-selection">
-				<label>
-					<input type="radio" name="role" value="user" required>
-					<span class="radio-label">Utilisateur</span>
-				</label>
-				<label>
-					<input type="radio" name="role" value="admin" required>
-					<span class="radio-label">Administrateur</span>
-				</label>
-			</div>
-			<div class="role-error" id="roleError" style="color: red; display: none;">
-				Veuillez choisir un rôle : Utilisateur ou Administrateur.
-			</div>
-			
-
-			<input type="email" placeholder="Email" required/>
-			<input type="password" placeholder="Mot de passe" required/>
-			<span class="forgot-password">
-				<a href="no-javascript1.html" title="Mot de passe oublié" id="link-reset">Mot de passe oublié ?</a>
-			</span>			
-			<button>Connexion</button>
-		</form>
-	</div>
-	<div class="overlay-container">
-		<div class="overlay">
-			<div class="overlay-panel overlay-left">
-				<h1>Bon Retour !</h1>
-				<p>Pour rester connecté avec nous, veuillez vous connecter avec vos informations personnelles</p>
-				<button class="ghost" id="signIn">Connexion</button>
-			</div>
-			<div class="overlay-panel overlay-right">
-				<h1>Bonjour, Ami !</h1>
-				<p>Entrez vos informations personnelles et commencez votre aventure avec nous</p>
-				<button class="ghost" id="signUp">Inscription</button>
-			</div>
-		</div>
-	</div>
+    <div class="form-container sign-up-container">
+        <form action="#" method="POST">
+            <h1>Créer un Compte</h1>
+            <div class="social-container">
+                <a href="https://www.facebook.com/v13.0/dialog/oauth?client_id=VOTRE_CLIENT_ID_FACEBOOK&redirect_uri=VOTRE_URI_DE_REDIRECTION_FACEBOOK&response_type=code&scope=email" class="social"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://accounts.google.com/o/oauth2/auth?client_id=VOTRE_CLIENT_ID_GOOGLE&redirect_uri=VOTRE_URI_DE_REDIRECTION_GOOGLE&response_type=code&scope=email%20profile" class="social"><i class="fab fa-google"></i></a>
+                <a href="https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=VOTRE_CLIENT_ID_LINKEDIN&redirect_uri=VOTRE_URI_DE_REDIRECTION_LINKEDIN&scope=r_liteprofile%20r_emailaddress" class="social"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <span>ou utilisez votre email pour vous inscrire</span>
+            <div class="role-selection">
+                <label>
+                    <input type="radio" name="role-signup" value="user" required>
+                    <span class="radio-label">Utilisateur</span>
+                </label>
+                <label>
+                    <input type="radio" name="role-signup" value="admin" required>
+                    <span class="radio-label">Administrateur</span>
+                </label>
+            </div>
+            <div class="role-error" id="roleErrorSignup" style="color: red; display: none;">
+                Veuillez choisir un rôle : Utilisateur ou Administrateur.
+            </div>
+            <input type="text" name="name" placeholder="Nom" required />
+            <input type="email" name="email" placeholder="Email" required />
+            <input type="password" name="password" placeholder="Mot de passe" required />
+            <button type="submit">Inscription</button>
+        </form>
+    </div>
+    <div class="form-container sign-in-container">
+        <form action="#" method="POST">
+            <h1>Connexion</h1>
+            <div class="social-container">
+                <a href="https://www.facebook.com/v13.0/dialog/oauth?client_id=VOTRE_CLIENT_ID_FACEBOOK&redirect_uri=VOTRE_URI_DE_REDIRECTION_FACEBOOK&response_type=code&scope=email" class="social"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://accounts.google.com/o/oauth2/auth?client_id=VOTRE_CLIENT_ID_GOOGLE&redirect_uri=VOTRE_URI_DE_REDIRECTION_GOOGLE&response_type=code&scope=email%20profile" class="social"><i class="fab fa-google"></i></a>
+                <a href="https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=VOTRE_CLIENT_ID_LINKEDIN&redirect_uri=VOTRE_URI_DE_REDIRECTION_LINKEDIN&scope=r_liteprofile%20r_emailaddress" class="social"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <span>ou utilisez votre compte</span>
+            <div class="role-selection">
+                <label>
+                    <input type="radio" name="role" value="user" required>
+                    <span class="radio-label">Utilisateur</span>
+                </label>
+                <label>
+                    <input type="radio" name="role" value="admin" required>
+                    <span class="radio-label">Administrateur</span>
+                </label>
+            </div>
+            <div class="role-error" id="roleError" style="color: red; display: none;">
+                Veuillez choisir un rôle : Utilisateur ou Administrateur.
+            </div>
+            <input type="email" name="email" placeholder="Email" required />
+            <input type="password" name="password" placeholder="Mot de passe" required />
+            <span class="forgot-password">
+                <a href="no-javascript1.html" title="Mot de passe oublié" id="link-reset">Mot de passe oublié ?</a>
+            </span>
+            <button type="submit">Connexion</button>
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>Bon Retour !</h1>
+                <p>Pour rester connecté avec nous, veuillez vous connecter avec vos informations personnelles</p>
+                <button class="ghost" id="signIn">Connexion</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>Bonjour, Ami !</h1>
+                <p>Entrez vos informations personnelles et commencez votre aventure avec nous</p>
+                <button class="ghost" id="signUp">Inscription</button>
+            </div>
+        </div>
+    </div>
 </div>
-<script src="login.js"></script>
+<script src="../js/Login.js"></script>
 </body>
 </html>
