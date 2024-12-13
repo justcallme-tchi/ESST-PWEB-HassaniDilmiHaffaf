@@ -106,9 +106,12 @@ VALUES
 (1, 'vibrations & ondes cours et exercices corrigés', '2023-01-01', '2021-01-01', 1, 1),
 (2, 'Travaux pratiques de vibrations et ondes', '2023-01-01', '2020-01-01', 2, 1);
 
-INSERT INTO Localisation (IDLocalisation, LibelleLocalisation)
-VALUES
-(1, 'Bibliothèque Centrale');
+INSERT INTO localisation (IDLocalisation, NomLocalisation)
+VALUES (1, '2eranger3etage');
+
+INSERT INTO localisation (IDLocalisation, NomLocalisation)
+VALUES (2, '3ranger5etage');
+
 
 INSERT INTO Exemplaire (IDExemplaire, EtatExemplaire, IDLocalisation, CodeOuvrage)
 VALUES
