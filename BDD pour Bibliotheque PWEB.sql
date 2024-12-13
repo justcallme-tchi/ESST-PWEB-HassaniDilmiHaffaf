@@ -120,8 +120,12 @@ VALUES
 
 INSERT INTO Etudiant (MatriculeEtudiant, Nom, Prenom, DateNaissance, EtatEtudiant)
 VALUES
-(1, 'Dupont', 'Jean', '2000-05-10', 'Inscrit'),
-(2, 'Martin', 'Claire', '1999-08-15', 'Diplômé');
+(1, 'El Hadi', 'Chibane', '2003-05-10', 'Inscrit'),
+(2, 'Mourad', 'Bouchaar', '1998-08-15', 'Diplômé');
+
+
+INSERT INTO Date (DateEmprunt)
+VALUES ('2024-01-10');
 
 INSERT INTO Emprunter (MatriculeEtudiant, IDExemplaire, DateEmprunt, DateRestitutionPrevue, DateRestitutionReelle)
 VALUES
