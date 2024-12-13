@@ -1,4 +1,12 @@
 -- Création des tables
+CREATE TABLE utilisateur (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(100) NOT NULL,
+    prenom VARCHAR(100) NOT NULL,
+    email VARCHAR(150) UNIQUE NOT NULL,
+    mot_de_passe VARCHAR(255) NOT NULL,
+    role VARCHAR(50) NOT NULL
+);
 CREATE TABLE Etudiant (
     MatriculeEtudiant INT PRIMARY KEY,
     Nom VARCHAR(50),
@@ -76,6 +84,10 @@ CREATE TABLE Ecrit (
 );
 
 -- Insertion des données
+INSERT INTO utilisateur (nom, prenom, email, mot_de_passe, role) 
+VALUES ('ferroukhi', 'wassila', 'wassila.ferroukhi@esst-sup.com', 'frwass2019', 'Admin');
+INSERT INTO utilisateur (nom, prenom, email, mot_de_passe, role) 
+VALUES ('aitmessaoud', 'tewfik', 'tewfik.aitmessaoud@esst-sup.com', 'aitmess2019', 'Utilisateur');
 INSERT INTO Auteur (IDAuteur, NomAuteur)
 VALUES
 (1, 'H.Djelouah'),
