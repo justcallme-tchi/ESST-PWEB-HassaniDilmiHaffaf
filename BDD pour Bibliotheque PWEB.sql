@@ -41,18 +41,18 @@ CREATE TABLE Auteur (
     NomAuteur VARCHAR(50)
 );
 
+CREATE TABLE localisation (
+    IDLocalisation INT PRIMARY KEY,
+    NomLocalisation VARCHAR(100)
+);
+
 CREATE TABLE Exemplaire (
     IDExemplaire INT PRIMARY KEY,
     EtatExemplaire VARCHAR(50),
     IDLocalisation INT,
     CodeOuvrage INT,
-    FOREIGN KEY (IDLocalisation) REFERENCES Localisation(IDLocalisation),
+    FOREIGN KEY (IDLocalisation) REFERENCES localisation(IDLocalisation),
     FOREIGN KEY (CodeOuvrage) REFERENCES Ouvrage(CodeOuvrage)
-);
-
-CREATE TABLE Localisation (
-    IDLocalisation INT PRIMARY KEY,
-    LibelleLocalisation VARCHAR(100)
 );
 
 CREATE TABLE Emprunter (
