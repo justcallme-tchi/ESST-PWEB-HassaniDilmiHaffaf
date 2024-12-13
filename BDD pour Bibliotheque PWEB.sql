@@ -55,6 +55,12 @@ CREATE TABLE Exemplaire (
     FOREIGN KEY (CodeOuvrage) REFERENCES Ouvrage(CodeOuvrage)
 );
 
+  CREATE TABLE Date (
+
+     DateEmprunt  DATE PRIMARY KEY
+
+);
+
 CREATE TABLE Emprunter (
     MatriculeEtudiant INT,
     IDExemplaire INT,
@@ -67,13 +73,6 @@ CREATE TABLE Emprunter (
     FOREIGN KEY (DateEmprunt) REFERENCES Date(DateEmprunt)
 
 );
-
-   CREATE TABLE Date (
-
-     DateEmprunt  DATE PRIMARY KEY
-
-);
-
 
 CREATE TABLE Ecrit (
     CodeOuvrage INT,
