@@ -103,10 +103,11 @@ VALUES
 (1, 'H.Djelouah'),
 (2, 'Ahmed Bourdache');
 
-INSERT INTO Edition (NumEdition, AnnéeEdition)
-VALUES
-(1, 2020),
-(2, 1970);
+INSERT INTO edition (NumEdition, AnnéeEdition) VALUES 
+(1, '2021'),
+(2, '2020'),
+(3, '2014'),
+(4, '2002');
 
 INSERT INTO Categorie (NumCategorie, NomCategorie)
 VALUES
