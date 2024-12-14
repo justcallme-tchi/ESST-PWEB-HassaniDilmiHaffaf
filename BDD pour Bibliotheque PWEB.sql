@@ -103,7 +103,7 @@ VALUES
 (1, 'H.Djelouah'),
 (2, 'Ahmed Bourdache');
 
-INSERT INTO Edition (NumEdition, MaisonEdition)
+INSERT INTO Edition (NumEdition, AnnéeEdition)
 VALUES
 (1, 2020),
 (2, 1970);
