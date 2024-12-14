@@ -131,8 +131,9 @@ VALUES (2, '3ranger5etage');
 INSERT INTO Exemplaire (IDExemplaire, EtatExemplaire, IDLocalisation, CodeOuvrage)
 VALUES
 (1, 'Neuf', 1, 1),
-(2, 'Usagé', 1, 2);
-
+(2, 'Usagé', 1, 2),
+(3, 'En Retard ', 1, 3),
+(2, 'En Retard ', 1, 4);
 INSERT INTO Date (DateEmprunt)
 VALUES ('2024-01-10');
 
