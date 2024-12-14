@@ -28,7 +28,7 @@ CREATE TABLE Categorie (
 );
 
 CREATE TABLE Ouvrage (
-    CodeOuvrage INT AUTO_INCREMENT PRIMARY KEY, -- Clé primaire avec auto-incrémentation
+    CodeOuvrage INT  PRIMARY KEY, -- Clé primaire avec auto-incrémentation
     annee VARCHAR(10) NOT NULL,                -- Année (ex: L1, L2, etc.)
     filiere VARCHAR(50) NOT NULL,              -- Filière (ex: ST, SM, MI, etc.)
     specialite VARCHAR(50) NOT NULL,           -- Spécialité (ex: Informatique, Chimie, etc.)
@@ -120,11 +120,11 @@ INSERT INTO Categorie (NumCategorie, NomCategorie)
 VALUES
 (1, 'Physique');
 
-INSERT INTO Ouvrage ( annee, filiere, specialite, module, titre, auteur, edition, NumEdition, NumCategorie)
-VALUES ( 'L1', 'SM', 'thermodynamique', 'Examens corrigés de chimie 2 thermodynamique', 'Dr Y.Moussaoui', 2020, 3, 1);
+INSERT INTO Ouvrage ( CodeOuvrage,annee, filiere, specialite, module, titre, auteur, edition, NumEdition, NumCategorie)
+VALUES ( 1,'L1', 'SM', 'thermodynamique', 'Examens corrigés de chimie 2 thermodynamique', 'Dr Y.Moussaoui', 2020, 3, 1);
 
-INSERT INTO Ouvrage (annee, filiere, specialite, module, titre, auteur, edition, NumEdition, NumCategorie)
-VALUES ('L1/L2/L3', 'MI/ISSIL', 'informatique', 'Math', 'Tables numériques de fonctions élémentaires', 'J.Laborde', 1970, 1, 2);
+INSERT INTO Ouvrage (CodeOuvrage,annee, filiere, specialite, module, titre, auteur, edition, NumEdition, NumCategorie)
+VALUES (2,'L1/L2/L3', 'MI/ISSIL', 'informatique', 'Math', 'Tables numériques de fonctions élémentaires', 'J.Laborde', 1970, 1, 2);
 
 INSERT INTO localisation (IDLocalisation, NomLocalisation)
 VALUES (1, '2eranger3etage');
