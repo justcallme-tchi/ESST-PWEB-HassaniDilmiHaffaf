@@ -138,8 +138,9 @@ VALUES
 (2, 'Usagé', 1, 2),
 (3, 'En Retard ', 1, 3),
 (4, 'En Retard ', 1, 4);
-INSERT INTO Date (DateEmprunt)
-VALUES ('2024-01-10');
+INSERT INTO `date` (`DateEmprunt`) VALUES
+('2024-01-10'),
+('2024-02-06');
 
 INSERT INTO Emprunter (MatriculeEtudiant, IDExemplaire, EtatExemplaire, DateEmprunt, DateRestitutionPrevue, DateRestitutionReelle)
 VALUES
