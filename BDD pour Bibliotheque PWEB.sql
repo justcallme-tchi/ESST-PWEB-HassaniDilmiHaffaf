@@ -92,11 +92,11 @@ VALUES (1, 'Ferroukhi', 'Wassila', 'wassila.ferroukhi@esst-sup.com', 'frwass2019
 
 
 INSERT INTO Etudiant (MatriculeEtudiant, Nom, Prenom, DateNaissance, email, mot_de_passe, EtatEtudiant)  
-VALUES (2, 'Chibane', 'El Hadi', '1998-08-15', 'chibane.elhadi@esst-sup.com', 'elhad2019', 'Non inscrit');
+VALUES (1, 'Chibane', 'El Hadi', '1998-08-15', 'chibane.elhadi@esst-sup.com', 'elhad2019', 'Non inscrit');
 
 
 INSERT INTO Etudiant (MatriculeEtudiant, Nom, Prenom, DateNaissance, email, mot_de_passe, EtatEtudiant)  
-VALUES (1, 'Bouchaar', 'Mourad', '2003-05-10', 'bouchaar.mourad@esst-sup.com', 'boumou2019', 'Inscrit');
+VALUES (5, 'Bouchaar', 'Mourad', '2003-05-10', 'bouchaar.mourad@esst-sup.com', 'boumou2019', 'Inscrit');
 
 
 INSERT INTO Auteur (IDAuteur, NomAuteur)
