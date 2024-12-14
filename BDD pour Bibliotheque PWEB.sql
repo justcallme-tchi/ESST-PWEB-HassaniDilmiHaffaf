@@ -19,7 +19,8 @@ CREATE TABLE Etudiant (
 
 CREATE TABLE Edition (
     NumEdition INT PRIMARY KEY,
-    MaisonEdition VARCHAR(50)
+    Edition INT
+
 );
 
 CREATE TABLE Categorie (
@@ -34,21 +35,20 @@ CREATE TABLE Auteur (
 
 
 CREATE TABLE Ouvrage (
-        annee VARCHAR(10) NOT NULL,                -- Année (ex: L1, L2, etc.)
-    filiere VARCHAR(50) NOT NULL,              -- Filière (ex: ST, SM, MI, etc.)
-    specialite VARCHAR(50) NOT NULL,           -- Spécialité (ex: Informatique, Chimie, etc.)
-    module VARCHAR(100) NOT NULL,              -- Module (ex: Mathématiques, Physique, etc.)
-    titre PRIMARY KEY VARCHAR(100) NOT NULL,               -- la clé primaire  Titre de l'ouvrage
-    NomAuteur VARCHAR(50) NOT NULL,              -- Auteur de l'ouvrage
-    edition INT NOT NULL,                      -- Année d'édition
-    NumEdition INT,                            -- Numéro d'édition (clé étrangère)
-    NumCategorie INT,                          -- Numéro de catégorie (clé étrangère)
+    CodeOuvrage INT AUTO_INCREMENT PRIMARY KEY, -- Clé primaire
+    annee VARCHAR(10) NOT NULL,                 -- Année académique (ex : L1, L2)
+    filiere VARCHAR(50) NOT NULL,               -- Filière (ex : ST, SM, MI)
+    specialite VARCHAR(50) NOT NULL,            -- Spécialité (ex : Informatique, Chimie)
+    module VARCHAR(100) NOT NULL,               -- Module (ex : Mathématiques)
+    titre VARCHAR(100) NOT NULL,                -- Titre de l'ouvrage
+    NomAuteur VARCHAR(50) NOT NULL,             -- Auteur de l'ouvrage
+    Edition INT NOT NULL,                       -- Année d'édition
+    NumEdition INT,                             -- Numéro d'édition  (clé étrangère)
+    NumCategorie INT,                           -- Numéro de catégorie (clé étrangère)
     
-    -- Définition des clés étrangères
     FOREIGN KEY (NumEdition) REFERENCES Edition(NumEdition),
     FOREIGN KEY (NumCategorie) REFERENCES Categorie(NumCategorie)
-    );
-
+);
 CREATE TABLE localisation (
     IDLocalisation INT PRIMARY KEY,
     NomLocalisation VARCHAR(100)
@@ -60,7 +60,7 @@ CREATE TABLE Exemplaire (
     IDLocalisation INT,
     CodeOuvrage INT,
     FOREIGN KEY (IDLocalisation) REFERENCES localisation(IDLocalisation),
-    FOREIGN KEY (titre) REFERENCES Ouvrage(titre)
+    FOREIGN KEY (CodeOuvrage) REFERENCES Ouvrage(CodeOuvrage)
 );
 
   CREATE TABLE Date (
@@ -85,8 +85,8 @@ CREATE TABLE Emprunter (
 CREATE TABLE Ecrit (
     CodeOuvrage INT,
     IDAuteur INT,
-    PRIMARY KEY (titre, IDAuteur),
-    FOREIGN KEY (titre) REFERENCES Ouvrage(titre),
+    PRIMARY KEY (CodeOuvrage, IDAuteur),
+    FOREIGN KEY (CodeOuvrage) REFERENCES Ouvrage(CodeOuvrage),
     FOREIGN KEY (IDAuteur) REFERENCES Auteur(IDAuteur)
 );
 
@@ -112,20 +112,13 @@ VALUES
 (4, 'J.Laborde');
 
 
-INSERT INTO Edition (NumEdition, MaisonEdition)
-VALUES
-(1, '2021'),
-(2, '2020');
+INSERT INTO Edition (NumEdition, Edition) VALUES (1, 2020), (2, 1970);
+INSERT INTO Categorie (NumCategorie, NomCategorie) VALUES (1, 'Categorie 1'), (2, 'Categorie 2');
 
-INSERT INTO Categorie (NumCategorie, NomCategorie)
-VALUES
-(1, 'Physique');
-
-INSERT INTO Ouvrage ( annee, filiere, specialite, module, titre, auteur, edition, NumEdition, NumCategorie)
-VALUES ( 'L1', 'SM', 'thermodynamique', 'Examens corrigés de chimie 2 thermodynamique', 'Dr Y.Moussaoui', 2020, 3, 1);
-
-INSERT INTO Ouvrage (annee, filiere, specialite, module, titre, auteur, edition, NumEdition, NumCategorie)
-VALUES ('L1/L2/L3', 'MI/ISSIL', 'informatique', 'Math', 'Tables numériques de fonctions élémentaires', 'J.Laborde', 1970, 1, 2);
+INSERT INTO Ouvrage (CodeOuvrage, annee, filiere, specialite, module, titre, NomAuteur, Edition, NumEdition, NumCategorie)
+VALUES 
+(1, 'L1', 'SM', 'thermodynamique', 'Examens corrigés de chimie 2 thermodynamique', 'Dr Y.Moussaoui', 2020, 3, 1),
+(2, 'L1/L2/L3', 'MI/ISSIL', 'informatique', 'Tables numériques de fonctions élémentaires', 'J.Laborde', 1970, 1, 2);
 
 INSERT INTO localisation (IDLocalisation, NomLocalisation)
 VALUES (1, '2eranger3etage');
