@@ -66,6 +66,7 @@ CREATE TABLE Exemplaire (
 CREATE TABLE Emprunter (
     MatriculeEtudiant INT,
     IDExemplaire INT,
+    EtatExemplaire VARCHAR(50),
     DateEmprunt DATE,
     DateRestitutionPrevue DATE,
     DateRestitutionReelle DATE,
@@ -140,9 +141,10 @@ VALUES
 INSERT INTO Date (DateEmprunt)
 VALUES ('2024-01-10');
 
-INSERT INTO Emprunter (MatriculeEtudiant, IDExemplaire, DateEmprunt, DateRestitutionPrevue, DateRestitutionReelle)
+INSERT INTO Emprunter (MatriculeEtudiant, IDExemplaire, EtatExemplaire, DateEmprunt, DateRestitutionPrevue, DateRestitutionReelle)
 VALUES
-(1, 1, '2024-01-10', '2024-02-10', NULL);
+(1, 3, 'En Retard ', '2024-01-10', '2024-02-10', NULL),
+(5, 4, 'En Retard ', '2024-02-06', '2024-03-06', NULL);
 
 -- Mises à jour
 UPDATE Exemplaire
@@ -155,11 +157,16 @@ WHERE MatriculeEtudiant = 1;
 
 UPDATE Emprunter
 SET DateRestitutionReelle = '2024-12-05'
-WHERE MatriculeEtudiant = 1 AND IDExemplaire = 1;
+WHERE MatriculeEtudiant = 1 AND IDExemplaire = 3;
+
+UPDATE Emprunter
+SET DateRestitutionReelle = '2024-11-11'
+WHERE MatriculeEtudiant = 5 AND IDExemplaire = 4;
+
 
 -- Suppressions
 DELETE FROM Emprunter
-WHERE MatriculeEtudiant = 1 AND IDExemplaire = 1 AND DateEmprunt = '2024-01-10';
+WHERE MatriculeEtudiant = 1 AND IDExemplaire = 3 AND DateEmprunt = '2024-01-10';
 
 DELETE FROM Exemplaire
 WHERE IDExemplaire = 2;
