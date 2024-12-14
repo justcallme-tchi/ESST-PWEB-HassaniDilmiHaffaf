@@ -27,6 +27,12 @@ CREATE TABLE Categorie (
     NomCategorie VARCHAR(50)
 );
 
+CREATE TABLE Auteur (
+    IDAuteur INT PRIMARY KEY,
+    NomAuteur VARCHAR(50)
+);
+
+
 CREATE TABLE Ouvrage (
     CodeOuvrage INT  PRIMARY KEY, -- Clé primaire avec auto-incrémentation
     annee VARCHAR(10) NOT NULL,                -- Année (ex: L1, L2, etc.)
@@ -34,7 +40,7 @@ CREATE TABLE Ouvrage (
     specialite VARCHAR(50) NOT NULL,           -- Spécialité (ex: Informatique, Chimie, etc.)
     module VARCHAR(100) NOT NULL,              -- Module (ex: Mathématiques, Physique, etc.)
     titre VARCHAR(100) NOT NULL,               -- Titre de l'ouvrage
-    auteur VARCHAR(100) NOT NULL,              -- Auteur de l'ouvrage
+    NomAuteur VARCHAR(50) NOT NULL,              -- Auteur de l'ouvrage
     edition INT NOT NULL,                      -- Année d'édition
     NumEdition INT,                            -- Numéro d'édition (clé étrangère)
     NumCategorie INT,                          -- Numéro de catégorie (clé étrangère)
@@ -42,11 +48,7 @@ CREATE TABLE Ouvrage (
     -- Définition des clés étrangères
     FOREIGN KEY (NumEdition) REFERENCES Edition(NumEdition),
     FOREIGN KEY (NumCategorie) REFERENCES Categorie(NumCategorie)
-);
-CREATE TABLE Auteur (
-    IDAuteur INT PRIMARY KEY,
-    NomAuteur VARCHAR(50)
-);
+    );
 
 CREATE TABLE localisation (
     IDLocalisation INT PRIMARY KEY,
