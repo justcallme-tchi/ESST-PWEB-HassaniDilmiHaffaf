@@ -119,7 +119,9 @@ VALUES
 INSERT INTO Ouvrage (CodeOuvrage, Titre, DateAcquisition, DateEdition, NumEdition, NumCategorie)
 VALUES
 (1, 'vibrations & ondes cours et exercices corrigés', '2023-01-01', '2021-01-01', 1, 1),
-(2, 'Travaux pratiques de vibrations et ondes', '2023-01-01', '2020-01-01', 2, 1);
+(2, 'Travaux pratiques de vibrations et ondes', '2023-01-01', '2020-01-01', 2, 1),
+(3, 'chimie 1 structure de la matière', '2023-06-15', '2014-08-11', 3, 1),
+(4, 'energies renouvelables', '2019-12-15', '2002-03-14', 4, 1);
 
 INSERT INTO localisation (IDLocalisation, NomLocalisation)
 VALUES (1, '2eranger3etage');
