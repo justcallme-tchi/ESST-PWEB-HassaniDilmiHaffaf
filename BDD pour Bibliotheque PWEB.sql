@@ -28,16 +28,21 @@ CREATE TABLE Categorie (
 );
 
 CREATE TABLE Ouvrage (
-    CodeOuvrage INT PRIMARY KEY,
-    Titre VARCHAR(100),
-    DateAcquisition DATE,
-    DateEdition DATE,
-    NumEdition INT,
-    NumCategorie INT,
+    CodeOuvrage INT AUTO_INCREMENT PRIMARY KEY, -- Clé primaire avec auto-incrémentation
+    annee VARCHAR(10) NOT NULL,                -- Année (ex: L1, L2, etc.)
+    filiere VARCHAR(50) NOT NULL,              -- Filière (ex: ST, SM, MI, etc.)
+    specialite VARCHAR(50) NOT NULL,           -- Spécialité (ex: Informatique, Chimie, etc.)
+    module VARCHAR(100) NOT NULL,              -- Module (ex: Mathématiques, Physique, etc.)
+    titre VARCHAR(100) NOT NULL,               -- Titre de l'ouvrage
+    auteur VARCHAR(100) NOT NULL,              -- Auteur de l'ouvrage
+    edition INT NOT NULL,                      -- Année d'édition
+    NumEdition INT,                            -- Numéro d'édition (clé étrangère)
+    NumCategorie INT,                          -- Numéro de catégorie (clé étrangère)
+    
+    -- Définition des clés étrangères
     FOREIGN KEY (NumEdition) REFERENCES Edition(NumEdition),
     FOREIGN KEY (NumCategorie) REFERENCES Categorie(NumCategorie)
 );
-
 CREATE TABLE Auteur (
     IDAuteur INT PRIMARY KEY,
     NomAuteur VARCHAR(50)
@@ -101,7 +106,10 @@ VALUES (1, 'Bouchaar', 'Mourad', '2003-05-10', 'bouchaar.mourad@esst-sup.com', '
 INSERT INTO Auteur (IDAuteur, NomAuteur)
 VALUES
 (1, 'H.Djelouah'),
-(2, 'Ahmed Bourdache');
+(2, 'Ahmed Bourdache'),
+(3,'Dr Y.Moussaoui'),
+(4, 'J.Laborde');
+
 
 INSERT INTO Edition (NumEdition, MaisonEdition)
 VALUES
@@ -112,10 +120,11 @@ INSERT INTO Categorie (NumCategorie, NomCategorie)
 VALUES
 (1, 'Physique');
 
-INSERT INTO Ouvrage (CodeOuvrage, Titre, DateAcquisition, DateEdition, NumEdition, NumCategorie)
-VALUES
-(1, 'vibrations & ondes cours et exercices corrigés', '2023-01-01', '2021-01-01', 1, 1),
-(2, 'Travaux pratiques de vibrations et ondes', '2023-01-01', '2020-01-01', 2, 1);
+INSERT INTO Ouvrage (annee, filiere, specialite, module, titre, auteur, edition, NumEdition, NumCategorie)
+VALUES ('L1', 'SM', 'thermodynamique', 'Examens corrigés de chimie 2 thermodynamique', 'Dr Y.Moussaoui', 2020, 3, 1);
+
+INSERT INTO Ouvrage (annee, filiere, specialite, module, titre, auteur, edition, NumEdition, NumCategorie)
+VALUES ('L1/L2/L3', 'MI/ISSIL', 'informatique', 'Math', 'Tables numériques de fonctions élémentaires', 'J.Laborde', 1970, 1, 2);
 
 INSERT INTO localisation (IDLocalisation, NomLocalisation)
 VALUES (1, '2eranger3etage');
