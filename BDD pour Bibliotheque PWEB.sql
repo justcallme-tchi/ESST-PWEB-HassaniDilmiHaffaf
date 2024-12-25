@@ -89,13 +89,13 @@ CREATE TABLE Ecrit (
 
 -- Insertion des données
 INSERT INTO Administrateur (nom, prenom, email, mot_de_passe)  
-VALUES ('Ferroukhi', 'Wassila', 'wassila.ferroukhi@esst-sup.com', '$2y$10$ttz.8.uNJyu095TS5nfbreZlRxcN23eepq/akGfwMNJpRDovfoeea'); -- frwass2019
+VALUES ('Ferroukhi', 'Wassila', 'wassila.ferroukhi@esst-sup.com', '$2y$10$ttz.8.uNJyu095TS5nfbreZlRxcN23eepq/akGfwMNJpRDovfoeea'); -- mdp=frwass2019
 
 INSERT INTO Etudiant (Nom, Prenom, DateNaissance, email, mot_de_passe, EtatEtudiant)  
-VALUES ('Chibane', 'El Hadi', '1998-08-15', 'chibane.elhadi@esst-sup.com', '$2y$10$nRX89Fd3.14zliCDQ6UVpev3Ug7jAuw6SvAyiG7arAqex/FgH3yj2', 'Non inscrit'); -- elhad2019 
+VALUES ('Chibane', 'El Hadi', '1998-08-15', 'chibane.elhadi@esst-sup.com', '$2y$10$nRX89Fd3.14zliCDQ6UVpev3Ug7jAuw6SvAyiG7arAqex/FgH3yj2', 'Non inscrit'); -- mdp=elhad2019 
 
 INSERT INTO Etudiant (Nom, Prenom, DateNaissance, email, mot_de_passe, EtatEtudiant)  
-VALUES ('Bouchaar', 'Mourad', '2003-05-10', 'bouchaar.mourad@esst-sup.com', '$2y$10$rLCSDiyjp5/a62YH42pbCerDE64xncfBIEwweHP7UCYcfDys5hdYK', 'Inscrit'); -- boumou2019
+VALUES ('Bouchaar', 'Mourad', '2003-05-10', 'bouchaar.mourad@esst-sup.com', '$2y$10$rLCSDiyjp5/a62YH42pbCerDE64xncfBIEwweHP7UCYcfDys5hdYK', 'Inscrit'); -- mdp=boumou2019
 
 INSERT INTO Auteur (NomAuteur)
 VALUES
