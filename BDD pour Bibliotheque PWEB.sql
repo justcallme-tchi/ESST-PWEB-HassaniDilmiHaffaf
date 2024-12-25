@@ -1,4 +1,9 @@
--- Création des tables.
+-- Création de la base de données
+DROP DATABASE IF EXISTS projetweb;
+CREATE DATABASE projetweb;
+USE projetweb;
+
+-- Création des tables
 CREATE TABLE Administrateur (
     id INT AUTO_INCREMENT PRIMARY KEY, -- Clé primaire auto-incrémentée
     nom VARCHAR(100) NOT NULL,
@@ -8,7 +13,7 @@ CREATE TABLE Administrateur (
 );
 
 CREATE TABLE Etudiant (
-    MatriculeEtudiant INT PRIMARY KEY, -- Clé primaire
+    MatriculeEtudiant INT AUTO_INCREMENT PRIMARY KEY, -- Clé primaire auto-incrémentée
     Nom VARCHAR(50) NOT NULL,
     Prenom VARCHAR(50) NOT NULL,
     DateNaissance DATE NOT NULL,
@@ -18,17 +23,17 @@ CREATE TABLE Etudiant (
 );
 
 CREATE TABLE Edition (
-    NumEdition INT PRIMARY KEY,
-    AnnéeEdition  INT
+    NumEdition INT AUTO_INCREMENT PRIMARY KEY, -- Clé primaire auto-incrémentée
+    AnneeEdition INT
 );
 
 CREATE TABLE Categorie (
-    NumCategorie INT PRIMARY KEY,
+    NumCategorie INT AUTO_INCREMENT PRIMARY KEY, -- Clé primaire auto-incrémentée
     NomCategorie VARCHAR(50)
 );
 
 CREATE TABLE Ouvrage (
-    CodeOuvrage INT PRIMARY KEY,
+    CodeOuvrage INT AUTO_INCREMENT PRIMARY KEY, -- Clé primaire auto-incrémentée
     Titre VARCHAR(100),
     DateAcquisition DATE,
     DateEdition DATE,
@@ -39,17 +44,17 @@ CREATE TABLE Ouvrage (
 );
 
 CREATE TABLE Auteur (
-    IDAuteur INT PRIMARY KEY,
+    IDAuteur INT AUTO_INCREMENT PRIMARY KEY, -- Clé primaire auto-incrémentée
     NomAuteur VARCHAR(50)
 );
 
 CREATE TABLE localisation (
-    IDLocalisation INT PRIMARY KEY,
+    IDLocalisation INT AUTO_INCREMENT PRIMARY KEY, -- Clé primaire auto-incrémentée
     NomLocalisation VARCHAR(100)
 );
 
 CREATE TABLE Exemplaire (
-    IDExemplaire INT PRIMARY KEY,
+    IDExemplaire INT AUTO_INCREMENT PRIMARY KEY, -- Clé primaire auto-incrémentée
     EtatExemplaire VARCHAR(50),
     IDLocalisation INT,
     CodeOuvrage INT,
@@ -57,10 +62,8 @@ CREATE TABLE Exemplaire (
     FOREIGN KEY (CodeOuvrage) REFERENCES Ouvrage(CodeOuvrage)
 );
 
-  CREATE TABLE Date (
-
-     DateEmprunt  DATE PRIMARY KEY
-
+CREATE TABLE Date (
+    DateEmprunt DATE PRIMARY KEY
 );
 
 CREATE TABLE Emprunter (
@@ -74,7 +77,6 @@ CREATE TABLE Emprunter (
     FOREIGN KEY (MatriculeEtudiant) REFERENCES Etudiant(MatriculeEtudiant),
     FOREIGN KEY (IDExemplaire) REFERENCES Exemplaire(IDExemplaire),
     FOREIGN KEY (DateEmprunt) REFERENCES Date(DateEmprunt)
-
 );
 
 CREATE TABLE Ecrit (
@@ -86,66 +88,64 @@ CREATE TABLE Ecrit (
 );
 
 -- Insertion des données
+INSERT INTO Administrateur (nom, prenom, email, mot_de_passe)  
+VALUES ('Ferroukhi', 'Wassila', 'wassila.ferroukhi@esst-sup.com', '$2y$10$ttz.8.uNJyu095TS5nfbreZlRxcN23eepq/akGfwMNJpRDovfoeea'); -- frwass2019
 
-INSERT INTO Administrateur (id, nom, prenom, email, mot_de_passe)  
-VALUES (1, 'Ferroukhi', 'Wassila', 'wassila.ferroukhi@esst-sup.com', 'frwass2019');
+INSERT INTO Etudiant (Nom, Prenom, DateNaissance, email, mot_de_passe, EtatEtudiant)  
+VALUES ('Chibane', 'El Hadi', '1998-08-15', 'chibane.elhadi@esst-sup.com', '$2y$10$nRX89Fd3.14zliCDQ6UVpev3Ug7jAuw6SvAyiG7arAqex/FgH3yj2', 'Non inscrit'); -- elhad2019 
 
+INSERT INTO Etudiant (Nom, Prenom, DateNaissance, email, mot_de_passe, EtatEtudiant)  
+VALUES ('Bouchaar', 'Mourad', '2003-05-10', 'bouchaar.mourad@esst-sup.com', '$2y$10$rLCSDiyjp5/a62YH42pbCerDE64xncfBIEwweHP7UCYcfDys5hdYK', 'Inscrit'); -- boumou2019
 
-INSERT INTO Etudiant (MatriculeEtudiant, Nom, Prenom, DateNaissance, email, mot_de_passe, EtatEtudiant)  
-VALUES (1, 'Chibane', 'El Hadi', '1998-08-15', 'chibane.elhadi@esst-sup.com', 'elhad2019', 'Non inscrit');
-
-
-INSERT INTO Etudiant (MatriculeEtudiant, Nom, Prenom, DateNaissance, email, mot_de_passe, EtatEtudiant)  
-VALUES (5, 'Bouchaar', 'Mourad', '2003-05-10', 'bouchaar.mourad@esst-sup.com', 'boumou2019', 'Inscrit');
-
-
-INSERT INTO Auteur (IDAuteur, NomAuteur)
+INSERT INTO Auteur (NomAuteur)
 VALUES
-(1, 'H.Djelouah'),
-(2, 'Ahmed Bourdache');
+('H.Djelouah'),
+('Ahmed Bourdache');
 
-INSERT INTO edition (NumEdition, AnnéeEdition) VALUES 
-(1, '2021'),
-(2, '2020'),
-(3, '2014'),
-(4, '2002');
+INSERT INTO Edition (AnneeEdition) VALUES 
+(2021),
+(2020),
+(2014),
+(2002);
 
-INSERT INTO Categorie (NumCategorie, NomCategorie)
+INSERT INTO Categorie (NomCategorie)
 VALUES
-(1, 'Physique');
+('Physique'),
+('Math');
 
-INSERT INTO Categorie (NumCategorie, NomCategorie)
+INSERT INTO Ouvrage (Titre, DateAcquisition, DateEdition, NumEdition, NumCategorie)
 VALUES
-(2, 'Math');
+('vibrations & ondes cours et exercices corrigés', '2023-01-01', '2021-01-01', 1, 1),
+('Travaux pratiques de vibrations et ondes', '2023-01-01', '2020-01-01', 2, 1),
+('chimie 1 structure de la matière', '2023-06-15', '2014-08-11', 3, 1),
+('energies renouvelables', '2019-12-15', '2002-03-14', 4, 1);
 
-INSERT INTO Ouvrage (CodeOuvrage, Titre, DateAcquisition, DateEdition, NumEdition, NumCategorie)
+INSERT INTO ecrit (CodeOuvrage, IDAuteur)
 VALUES
-(1, 'vibrations & ondes cours et exercices corrigés', '2023-01-01', '2021-01-01', 1, 1),
-(2, 'Travaux pratiques de vibrations et ondes', '2023-01-01', '2020-01-01', 2, 1),
-(3, 'chimie 1 structure de la matière', '2023-06-15', '2014-08-11', 3, 1),
-(4, 'energies renouvelables', '2019-12-15', '2002-03-14', 4, 1);
+('1','1'),
+('2','2'),
+('3','1'),
+('3','2'),
+('4','2');
 
-INSERT INTO localisation (IDLocalisation, NomLocalisation)
-VALUES (1, '2eranger3etage');
+INSERT INTO localisation (NomLocalisation)
+VALUES ('2eranger3etage'), ('3ranger5etage');
 
-INSERT INTO localisation (IDLocalisation, NomLocalisation)
-VALUES (2, '3ranger5etage');
-
-
-INSERT INTO Exemplaire (IDExemplaire, EtatExemplaire, IDLocalisation, CodeOuvrage)
+INSERT INTO Exemplaire (EtatExemplaire, IDLocalisation, CodeOuvrage)
 VALUES
-(1, 'Neuf', 1, 1),
-(2, 'Usagé', 1, 2),
-(3, 'En Retard ', 1, 3),
-(4, 'En Retard ', 1, 4);
-INSERT INTO `date` (`DateEmprunt`) VALUES
+('Neuf', 1, 1),
+('Usagé', 1, 2),
+('En Retard', 1, 3),
+('En Retard', 1, 4);
+
+INSERT INTO Date (DateEmprunt) VALUES
 ('2024-01-10'),
 ('2024-02-06');
 
 INSERT INTO Emprunter (MatriculeEtudiant, IDExemplaire, EtatExemplaire, DateEmprunt, DateRestitutionPrevue, DateRestitutionReelle)
 VALUES
-(1, 3, 'En Retard ', '2024-01-10', '2024-02-10', NULL),
-(5, 4, 'En Retard ', '2024-02-06', '2024-03-06', NULL);
+(1, 3, 'En Retard', '2024-01-10', '2024-02-10', NULL),
+(2, 4, 'En Retard', '2024-02-06', '2024-03-06', NULL);
 
 -- Mises à jour
 UPDATE Exemplaire
@@ -162,8 +162,7 @@ WHERE MatriculeEtudiant = 1 AND IDExemplaire = 3;
 
 UPDATE Emprunter
 SET DateRestitutionReelle = '2024-11-11'
-WHERE MatriculeEtudiant = 5 AND IDExemplaire = 4;
-
+WHERE MatriculeEtudiant = 2 AND IDExemplaire = 4;
 
 -- Suppressions
 DELETE FROM Emprunter
