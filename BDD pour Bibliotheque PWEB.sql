@@ -69,7 +69,7 @@ CREATE TABLE Date (
 CREATE TABLE Emprunter (
     MatriculeEtudiant INT,
     IDExemplaire INT,
-    EtatExemplaire VARCHAR(50),
+    EtatEmprunt VARCHAR(50),
     DateEmprunt DATE,
     DateRestitutionPrevue DATE,
     DateRestitutionReelle DATE,
@@ -92,7 +92,7 @@ INSERT INTO Administrateur (nom, prenom, email, mot_de_passe)
 VALUES ('Ferroukhi', 'Wassila', 'wassila.ferroukhi@esst-sup.com', '$2y$10$ttz.8.uNJyu095TS5nfbreZlRxcN23eepq/akGfwMNJpRDovfoeea'); -- mdp=frwass2019
 
 INSERT INTO Etudiant (Nom, Prenom, DateNaissance, email, mot_de_passe, EtatEtudiant)  
-VALUES ('Chibane', 'El Hadi', '1998-08-15', 'chibane.elhadi@esst-sup.com', '$2y$10$nRX89Fd3.14zliCDQ6UVpev3Ug7jAuw6SvAyiG7arAqex/FgH3yj2', 'Non inscrit'); -- mdp=elhad2019 
+VALUES ('Chibane', 'El Hadi', '1998-08-15', 'chibane.elhadi@esst-sup.com', '$2y$10$nRX89Fd3.14zliCDQ6UVpev3Ug7jAuw6SvAyiG7arAqex/FgH3yj2', 'Diplome'); -- mdp=elhad2019
 
 INSERT INTO Etudiant (Nom, Prenom, DateNaissance, email, mot_de_passe, EtatEtudiant)  
 VALUES ('Bouchaar', 'Mourad', '2003-05-10', 'bouchaar.mourad@esst-sup.com', '$2y$10$rLCSDiyjp5/a62YH42pbCerDE64xncfBIEwweHP7UCYcfDys5hdYK', 'Inscrit'); -- mdp=boumou2019
@@ -125,7 +125,6 @@ VALUES
 ('1','1'),
 ('2','2'),
 ('3','1'),
-('3','2'),
 ('4','2');
 
 INSERT INTO localisation (NomLocalisation)
@@ -133,46 +132,25 @@ VALUES ('2eranger3etage'), ('3ranger5etage');
 
 INSERT INTO Exemplaire (EtatExemplaire, IDLocalisation, CodeOuvrage)
 VALUES
-('Neuf', 1, 1),
-('Usagé', 1, 2),
-('En Retard', 1, 3),
-('En Retard', 1, 4);
+('Disponible', 1, 1),
+('Disponible', 1, 1),
+('non disponible', 1, 2),
+('Disponible', 1, 2),
+('Disponible', 1, 2),
+('Disponible', 1, 3),
+('Disponible', 1, 3),
+('non disponible', 1, 4);
 
 INSERT INTO Date (DateEmprunt) VALUES
 ('2024-01-10'),
 ('2024-02-06');
 
-INSERT INTO Emprunter (MatriculeEtudiant, IDExemplaire, EtatExemplaire, DateEmprunt, DateRestitutionPrevue, DateRestitutionReelle)
+INSERT INTO Emprunter (MatriculeEtudiant, IDExemplaire, EtatEmprunt, DateEmprunt, DateRestitutionPrevue, DateRestitutionReelle)
 VALUES
-(1, 3, 'En Retard', '2024-01-10', '2024-02-10', NULL),
-(2, 4, 'En Retard', '2024-02-06', '2024-03-06', NULL);
-
--- Mises à jour
-UPDATE Exemplaire
-SET EtatExemplaire = 'Disponible'
-WHERE IDExemplaire = 1;
-
-UPDATE Etudiant
-SET EtatEtudiant = 'Diplômé'
-WHERE MatriculeEtudiant = 1;
-
-UPDATE Emprunter
-SET DateRestitutionReelle = '2024-12-05'
-WHERE MatriculeEtudiant = 1 AND IDExemplaire = 3;
-
-UPDATE Emprunter
-SET DateRestitutionReelle = '2024-11-11'
-WHERE MatriculeEtudiant = 2 AND IDExemplaire = 4;
-
--- Suppressions
-DELETE FROM Emprunter
-WHERE MatriculeEtudiant = 1 AND IDExemplaire = 3 AND DateEmprunt = '2024-01-10';
-
-DELETE FROM Exemplaire
-WHERE IDExemplaire = 2;
-
-DELETE FROM Etudiant 
-WHERE MatriculeEtudiant = 2 AND EtatEtudiant = 'Non inscrit';
+(1, 3, 'Attente', '2024-01-10', '2024-02-10', NULL),
+(1, 1, 'Rendu', '2024-01-10', '2024-02-10', NULL),
+(1, 8, 'Confirmé', '2024-01-10', '2024-02-10', NULL),
+(2, 4, 'Confirmé', '2024-02-06', '2024-03-06', NULL);
 
 -- Procédures et déclencheurs
 DELIMITER $$
