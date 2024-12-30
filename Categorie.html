@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gérer les Catégories - Bibliothèque ESST</title>
+    <link rel="stylesheet" href="../css/style-addbook.css">
+    <style>
+        .sous-menu {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .sous-menu a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .sous-menu a:hover {
+            background-color: #007BFF;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="../img/ESST-logo-white-300x233.png" alt="ESST Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.php">Page d'accueil</a></li>
+                <li><a href="admin.php">Dashboard</a></li>
+                <li><a href="AddBook.htm">Gérer les Livres</a></li>
+                <li><a href="ManageUsers.htm">Gérer les Utilisateurs</a></li>
+                <li><a href="../php/logout.php">Deconnexion</a></li>
+                <li><a href="Auteur.html" class="active">Autre</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="add-book-content">
+        <header class="page-header">
+            <h1>Gérer les Catégories</h1>
+            <div class="sous-menu">
+                <a href="Auteur.html">Auteur</a>
+                <a href="Edition.html">Edition</a>
+                <a href="Categorie.html" class="active">Catégorie</a> 
+                <a href="Localisation.html">Localisation</a> 
+            </div>
+        </header>
+
+        <!-- Formulaire pour ajouter une catégorie -->
+        <section class="add-book-form">
+            <h2>Ajouter une Catégorie</h2>
+            <form id="addCategoryForm">
+                <label for="NomCategorie">Nom de la Catégorie</label>
+                <input id="NomCategorie" name="NomCategorie" type="text" placeholder="Nom de la catégorie" required>
+                <button type="submit" class="btn">Ajouter</button>
+            </form>
+        </section>
+
+        <!-- Liste des catégories -->
+        <section id="book-list">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Barre Rechercher...">
+            </div>
+            <h2>Liste des Catégories</h2>
+            <table class="book-table">
+                <thead>
+                    <tr>
+                        <th>Nom de la Catégorie</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="categoryTableBody">
+                    <!-- Les données seront insérées ici via AJAX -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="../js/Categorie.js"></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: linear-gradient(180deg, #001f3f, #1e3a8a);
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.sidebar .logo img {
+    max-width: 150px;
+    margin-bottom: 10px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.sidebar nav ul li {
+    width: 100%;
+}
+
+.sidebar nav ul li a {
+    color: #FFFFFF;
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.sidebar nav ul li a.active, .sidebar nav ul li a:hover {
+    background-color: #3533cd;
+    border-radius: 8px;
+}
+
+/* Main Content */
+.manage-users-content {
+    margin-left: 250px;
+    padding: 20px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.95), rgba(53, 51, 205, 0.85));
+    min-height: 100vh;
+}
+
+/* Page Header */
+.page-header {
+    text-align: center;
+    padding: 20px;
+    color: #3533cd;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    color: #333;
+    font-size: 1rem;
+}
+
+/* User Table */
+.user-table-section {
+    background-color: #f8f9fc;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.user-table-section h2 {
+    text-align: center;
+    color: #2a2e9b;
+    margin-bottom: 15px;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.user-table thead {
+    background-color: #3533cd;
+    color: white;
+}
+
+.user-table th, .user-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.user-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.user-table .btn-accept, .user-table .btn-reject {
+    padding: 6px 12px;
+    margin: 2px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.user-table .btn-accept {
+    background: #4CAF50;
+    color: white;
+}
+
+.user-table .btn-accept:hover {
+    background: #45a049;
+}
+
+.user-table .btn-reject {
+    background: #f44336;
+    color: white;
+}
+
+.user-table .btn-reject:hover {
+    background: #e53935;
+}
+
+@media (max-width: 600px) {
+    .user-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .user-table thead {
+        display: none;
+    }
+
+    .user-table tbody tr {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+    }
+
+    .user-table tbody tr td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px;
+        border: none;
+    }
+
+    .user-table tbody tr td::before {
+        content: attr(data-label);
+        flex: 1;
+        font-weight: bold;
+    }
+}

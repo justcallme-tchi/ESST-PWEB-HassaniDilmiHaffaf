@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifier les Utilisateurs - Bibliothèque ESST</title>
+    <link rel="stylesheet" href="../css/Notifier.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="../img/ESST-logo-white-300x233.png" alt="ESST Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.htm" >Page d'accueil</a></li>
+                <li><a href="admin.php">Dashboard</a></li>
+                <li><a href="AddBook.htm">Gérer les Livres</a></li>
+                <li><a href="Notify.htm" class="active">Notifier les Utilisateurs</a></li>
+                <li><a href="ManageUsers.htm">Gérer les Utilisateurs</a></li>
+                <li><a href="Auteur.html">Autre</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="notify-content">
+        <header class="notify-header">
+            <h1>Notifications de Retard</h1>
+            <p>Informez les utilisateurs des livres dont la période d'emprunt est dépassée.</p>
+        </header>
+
+        <!-- Notification Table -->
+        <section class="notification-table-section">
+            <h2>Livres en Retard</h2>
+            <table class="notification-table">
+                <thead>
+                    <tr>
+                        <th>Numéro d'Emprunt</th>
+                        <th>Nom de l'Utilisateur</th>
+                        <th>Titre du Livre</th>
+                        <th>Date de Retour</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#2021</td>
+                        <td>Marie Dubois</td>
+                        <td>Mathématiques Supérieures</td>
+                        <td>02/10/2024</td>
+                        <td>En Retard</td>
+                        <td><button class="notify-btn">Notifier</button></td>
+                    </tr>
+                    <tr>
+                        <td>#2022</td>
+                        <td>Jean Paul</td>
+                        <td>Physique des Particules</td>
+                        <td>01/10/2024</td>
+                        <td>En Retard</td>
+                        <td><button class="notify-btn">Notifier</button></td>
+                    </tr>
+                    <!-- Additional overdue entries can be added here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="../js/Notify.js"></script>
+</body>
+</html>

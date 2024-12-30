@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gérer les Livres - Bibliothèque ESST</title>
+    <link rel="stylesheet" href="../css/style-addbook.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="../img/ESST-logo-white-300x233.png" alt="ESST Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.php">Page d'accueil</a></li>
+                <li><a href="admin.php">Dashboard</a></li>
+                <li><a href="AddBook.htm" class="active">Gérer les Livres</a></li>
+                <li><a href="ManageUsers.htm">Gérer les Utilisateurs</a></li>
+                <li><a href="../php/logout.php">Deconnexion</a></li>
+                <li><a href="Auteur.html">Autre</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="add-book-content">
+        <header class="page-header">
+            <h1>Gérer les Livres</h1>
+            <p>Ajouter, modifier ou supprimer des livres dans la bibliothèque.</p>
+        </header>
+
+        <!-- Formulaire pour ajouter un livre -->
+<section class="add-book-form">
+    <h2>Ajouter un Livre</h2>
+    <form id="addBookForm">
+        <label for="titre">Titre</label>
+        <input id="titre" name="Titre" type="text" placeholder="Titre" required>
+
+        <label for="dateAcquisition">Date Acquisition</label>
+        <input id="dateAcquisition" name="DateAcquisition" type="date" placeholder="Date Acquisition" required>
+
+        <label for="dateEdition">Date Edition</label>
+        <input id="dateEdition" name="DateEdition" type="date" placeholder="Date Edition" required>
+
+        <label for="numEdition">Année Edition</label>
+        <select id="numEdition" name="NumEdition" required>
+            <!-- Les options seront chargées dynamiquement via JavaScript -->
+        </select>
+
+        <label for="numCategorie">Catégorie</label>
+        <select id="numCategorie" name="NumCategorie" required>
+            <!-- Les options seront chargées dynamiquement via JavaScript -->
+        </select>
+
+        <label for="auteur">Auteur</label>
+        <select id="auteur" name="Auteur" required>
+            <!-- Les options seront chargées dynamiquement via JavaScript -->
+        </select>
+            <label for="numExemplaires">Nombre d'exemplaires :</label>
+            <input type="number" id="numExemplaires" name="numExemplaires" min="1" required>
+            
+            <label for="localisation">Localisation :</label>
+            <select id="localisation" name="Localisation" required></select>
+        
+        <button type="submit" class="btn">Ajouter</button>
+    </form>
+</section>
+
+
+        <!-- Book List Table -->
+        <section id="book-list">
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Barre Rechercher...">
+            </div>
+            <h2>Liste des Livres</h2>
+            <table class="book-table">
+                <thead>
+                    <tr>
+                        <th>Titre</th>
+                        <th>Date Acquisition</th>
+                        <th>Date Edition</th>
+                        <th>Année Edition</th>
+                        <th>Nom Categorie</th>
+                        <th>Auteur</th>
+                        <th>Localisation</th>
+                        <th>Option</th>
+                    </tr>
+                </thead>
+                <tbody class="bookTableBody">
+                    <!-- Les données seront insérées ici via AJAX -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="../js/AddBook.js"></script>
+</body>
+</html>

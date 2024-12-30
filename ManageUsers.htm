@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gérer les Livres - Bibliothèque ESST</title>
+    <link rel="stylesheet" href="../css/style-addbook.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="../img/ESST-logo-white-300x233.png" alt="ESST Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.php">Page d'accueil</a></li>
+                <li><a href="admin.php">Dashboard</a></li>
+                <li><a href="AddBook.htm">Gérer les Livres</a></li>
+                <li><a href="ManageUsers.htm" class="active">Gérer les Utilisateurs</a></li>
+                <li><a href="../php/logout.php">Deconnexion</a></li>
+                <li><a href="Auteur.html">Autre</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="add-book-content">
+        <header class="page-header">
+            <h1>Gérer les Utilisateurs</h1>
+            <p>Ajouter, modifier ou supprimer des Utilisateurs</p>
+        </header>
+
+        <!-- Formulaire pour ajouter un livre -->
+<section class="add-book-form">
+    <h2>Ajouter un Utilisateurs</h2>
+    <form id="addBookForm">
+        <label for="nom">Nom</label>
+        <input id="nom" name="Nom" type="text" placeholder="Nom" required>
+
+        <label for="prenom">Prenom</label>
+        <input id="prenom" name="Prenom" type="text" placeholder="Prenom" required>
+
+        <label for="dateNaissance">Date Naissance</label>
+        <input id="dateNaissance" name="DateNaissance" type="date" placeholder="Date de Naissance" required>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="text" placeholder="Email" required>
+
+
+        <label for="motDePasse">Mot De Passe</label>
+        <input id="motDePasse" name="mot_de_passe" type="password" placeholder="Mot de passe" required>
+
+        <label for="etatEtudiant">État Étudiant</label>
+                <select id="etatEtudiant" name="EtatEtudiant" required>
+                    <option value="Inscrit">Inscrit</option>
+                    <option value="Diplome">Diplome</option>
+
+                </select>
+
+        <button type="submit" class="btn">Ajouter</button>
+    </form>
+</section>
+
+
+        <!-- Book List Table -->
+        <section id="book-list">
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Barre Rechercher...">
+            </div>
+            <h2>Liste des Utilisateurs</h2>
+            <table class="book-table">
+                <thead>
+                    <tr>
+                        <th>Matricule</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Date de Naissance</th>
+                        <th>email</th>
+                        <th>Etat</th>
+                        <th>Option</th>
+                    </tr>
+                </thead>
+                <tbody class="bookTableBody">
+                    <!-- Les données seront insérées ici via AJAX -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="../js/ManageUsers.js"></script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background: linear-gradient(90deg, #4c52bb, #3533cd); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: linear-gradient(180deg, #001f3f, #1e3a8a);
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+/* Optional: To ensure content is easy to read */
+.dashboard-content, .sidebar {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly opaque white for better readability */
+    backdrop-filter: blur(8px); /* Adds a blur effect for a frosted glass look */
+}
+
+.sidebar .logo img {
+    max-width: 150px;
+    margin-bottom: 10px;
+}
+
+.sidebar .logo h2 {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.sidebar nav ul li {
+    width: 100%;
+}
+
+.sidebar nav ul li a {
+    color: #FFFFFF;
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.sidebar nav ul li a.active, .sidebar nav ul li a:hover {
+    background-color: #3533cd;
+    color: #FFFFFF;
+    border-radius: 8px;
+}
+
+/* Dashboard Main Content */
+.dashboard-content {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-left h1 {
+    font-size: 1.8rem;
+    color: #3533cd;
+}
+
+.header-left p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-bar input {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    width: 200px;
+}
+
+.notification {
+    position: relative;
+}
+
+.bell-icon {
+    font-size: 1.5rem;
+    color: #3533cd;
+    cursor: pointer;
+}
+
+.notification-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: #ff4757;
+    color: white;
+    font-size: 0.8rem;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+.profile-pic img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* Dashboard Cards */
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #f8f9fc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: #2a2e9b;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-content h3 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.card-content p {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: #3533cd;
+}
+
+/* Graph Section */
+.Graphs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.graph-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.graph-card h3 {
+    font-size: 1.2rem;
+    color: #2a2e9b;
+    margin-bottom: 10px;
+}
+
+.graph-placeholder {
+    height: 150px;
+    background: linear-gradient(90deg, #3533cd, #2a2e9b);
+    border-radius: 12px;
+    opacity: 0.1;
+}
+
+/* Recent Reservations Section */
+.recent-reservations {
+    background-color: #f8f9fc;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.recent-reservations h2 {
+    color: #2a2e9b;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.recent-reservations .search-bar {
+    margin-bottom: 15px;
+}
+
+.recent-reservations .search-bar input {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 300px;
+}
+
+.reservation-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-table thead {
+    background-color: #3533cd;
+    color: white;
+}
+
+.reservation-table th, .reservation-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.reservation-table tbody tr:nth-child(even) {
+    background-color: #f8f9fc;
+}
+
+.reservation-table tbody tr:hover {
+    background-color: #e2e8f0;
+    cursor: pointer;
+}
+
+/* Style for table pagination (if needed) */
+.table-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.table-pagination button {
+    background-color: #3533cd;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.table-pagination button:hover {
+    background-color: #2a2e9b;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    
+    .dashboard-content {
+        margin-left: 0;
+    }
+    
+    .dashboard-cards, .Graphs {
+        grid-template-columns: 1fr;
+    }
+}
