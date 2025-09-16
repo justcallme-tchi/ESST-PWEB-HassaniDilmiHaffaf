@@ -1,9 +1,4 @@
-The correct paths of files :
-![image](https://github.com/user-attachments/assets/214f07cf-acbd-4e58-96c9-2f00ddb9d259)
-![image](https://github.com/user-attachments/assets/28542035-3ae6-4c53-af23-90838c8ced35)
-![image](https://github.com/user-attachments/assets/54411061-c615-43e9-8261-e0ce9fe3a9fe)
-
-Application Web pour la gestion de la Bibliothèque de l'ESST :
+Application Web pour la gestion de la Bibliothèque de l'Ecole superieure des science et technologies d'Alger (https://www.esst-sup.com/) :
 
 - Description du Projet :
 Le Système de Gestion de la Bibliothèque de l'ESSST est une application web conçue pour simplifier les processus de gestion de la bibliothèque de notre université. Cette application offre une plateforme où les étudiants et les administrateurs peuvent interagir efficacement avec les ressources de la bibliothèque. Les utilisateurs peuvent rechercher, réserver et consulter l'historique de leurs emprunts, tandis que les administrateurs disposent d'outils pour gérer l'inventaire de la bibliothèque et surveiller les activités d'emprunt. La plateforme inclut également des notifications pour rappeler aux utilisateurs les dates d'échéance de leurs emprunts.
